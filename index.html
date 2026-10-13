@@ -30,6 +30,7 @@
 .daily-actions{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;margin-top:18px}.daily-actions .btn:disabled{opacity:.55;cursor:default}.daily-more{font-weight:700;color:#896327;text-decoration:underline;text-underline-offset:4px}
 .daily-bottom{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:20px;padding-top:16px;color:var(--muted);font-size:13px}
 @media(max-width:650px){.daily .subject-head h2{font-size:32px}.daily .subject-head{display:block}.daily-date{display:block;padding-top:8px}.daily-option{font-size:15px;padding:13px 12px}.daily-actions .btn{width:100%}.daily-more{padding:8px 0}}
+.arena-promo-inner{display:flex;align-items:center;justify-content:space-between;gap:22px}.arena-promo-inner p{color:var(--muted);line-height:1.5}.arena-promo-inner .btn{white-space:nowrap}@media(max-width:650px){.arena-promo-inner{display:block}.arena-promo-inner .btn{width:100%}}
 </style>
 </head>
 <body>
@@ -51,7 +52,7 @@
  <div id="dailyResult" class="daily-result" role="status" hidden></div>
  <div class="daily-actions"><button class="btn primary" type="button" id="dailyCheck" disabled>Verifica la risposta →</button><a class="daily-more" id="dailyMore" href="flashcard.html">Allenati su questo argomento →</a></div>
  <div class="daily-bottom"><span id="dailyCount">Le tue sfide completate: 0</span><span id="dailyNext">Torna domani per una nuova domanda!</span></div>
- </section><div class="bottom" aria-hidden="true"></div></main>
+ </section><section class="subjects arena-promo" aria-labelledby="arenaPromoTitle"><div class="subject-head"><div><h2 id="arenaPromoTitle">Cloe contro Marinello ⚖</h2><p>Due opinioni, una sola verità. Saprai giudicare chi ha ragione?</p></div></div><div class="arena-promo-inner"><div><strong>Il duello ti aspetta!</strong><p>Ascolta le loro argomentazioni, scegli il tuo verdetto e scopri la regola con una battuta finale.</p></div><a class="btn primary" href="duelli.html">Entra nell’arena →</a></div></section><div class="bottom" aria-hidden="true"></div></main>
 <div class="notice" id="notice" role="status"></div>
 <script>
 const notice=document.getElementById('notice');let noticeTimer;function toast(message){notice.textContent=message;notice.classList.add('show');clearTimeout(noticeTimer);noticeTimer=setTimeout(()=>notice.classList.remove('show'),4000)}
