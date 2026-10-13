@@ -45,7 +45,7 @@
 <a class="tile" href="progressi.html"><span class="bubble"><svg viewBox="0 0 40 40"><rect x="5" y="25" width="7" height="11"/><rect x="17" y="16" width="7" height="20"/><rect x="29" y="6" width="7" height="30"/></svg></span><h2>I miei progressi</h2><p>Monitora i tuoi risultati e ripassa le domande da rivedere.</p><span class="arrow" aria-hidden="true">→</span></a>
 </section>
 <section class="subjects daily" id="sfida" aria-labelledby="dailyTitle">
- <div class="subject-head"><div><h2 id="dailyTitle">La sfida del giorno ✦</h2><p>Una domanda nuova ogni giorno. Mettiti alla prova!</p></div><span class="daily-date" id="dailyDate"></span></div>
+ <div class="subject-head"><div><h2 id="dailyTitle">La sfida del giorno</h2><p>Una domanda nuova ogni giorno. Mettiti alla prova!</p></div><span class="daily-date" id="dailyDate"></span></div>
  <div class="daily-meta"><span id="dailyTopic">La domanda di oggi</span><span id="dailySeries">✦ Prima sfida</span></div>
  <div class="daily-question" id="dailyQuestion">Caricamento della sfida…</div>
  <div class="daily-options" id="dailyOptions" role="group" aria-label="Scegli una risposta"></div>
@@ -67,7 +67,7 @@ const day=dayLocal(),dateParts=day.split('-').map(Number),dateNumber=Math.floor(
 const challenge=DAILY_QUESTIONS[((dateNumber%DAILY_QUESTIONS.length)+DAILY_QUESTIONS.length)%DAILY_QUESTIONS.length];
 const [topic,question,options,right,explanation,deckUrl]=challenge;
 const dailyData=readDaily();if(!dailyData.days||typeof dailyData.days!=='object')dailyData.days={};
-const saved=dailyData.days[day];let selected=saved&&Number.isInteger(saved.answer)?saved.answer:null;let verified=!!(saved&&saved.done);
+const saved=dailyData.days[day];const alreadyCompleted=!!(saved&&saved.done);let selected=null;let verified=false;
 document.getElementById('dailyDate').textContent=new Intl.DateTimeFormat('it-IT',{day:'numeric',month:'long',timeZone:'Europe/Rome'}).format(new Date());
 document.getElementById('dailyTopic').textContent=topic;
 document.getElementById('dailyQuestion').textContent=question;
@@ -80,7 +80,7 @@ if(!streak){cursor=dateNumber-1;while(dailyData.days[new Date(cursor*86400000).t
 document.getElementById('dailySeries').textContent=streak?'✦ '+streak+(streak===1?' giorno consecutivo':' giorni consecutivi'):'✦ Inizia la tua serie';
 document.getElementById('dailyNext').textContent=verified?'Ottimo! Una nuova sfida ti aspetta domani.':'Una risposta al giorno, un passo avanti.';
 }
-check.addEventListener('click',()=>{if(verified||selected===null)return;verified=true;dailyData.days[day]={answer:selected,done:true,correct:selected===right};saveDaily(dailyData);updateDaily()});
+check.addEventListener('click',()=>{if(verified||selected===null)return;verified=true;if(!alreadyCompleted){dailyData.days[day]={answer:selected,done:true,correct:selected===right};saveDaily(dailyData)}updateDaily()});
 updateDaily();
 const searchInput=document.getElementById('searchInput');document.getElementById('searchForm').addEventListener('submit',e=>{e.preventDefault();const q=searchInput.value.trim();window.location.href='flashcard.html'+(q?'?cerca='+encodeURIComponent(q):'')});
 </script>
