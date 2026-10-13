@@ -1,4 +1,4 @@
-<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#fffaf1"><meta name="description" content="Cloe contro Marinello: duelli di diritto per preparare i concorsi pubblici con Bottega Appunti."><title>Cloe contro Marinello | Bottega Appunti</title><style>*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 90% 10%,#fff0cb,transparent 40%),#fffaf1;color:#292118;font-family:Arial,Helvetica,sans-serif}a{color:inherit}button,select{font:inherit}.wrap{max-width:920px;margin:auto;padding:0 18px}.top{border-bottom:1px solid #dec797;background:#fffcf6}.top .wrap{display:flex;align-items:center;justify-content:space-between;min-height:72px;gap:12px}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700}.brand img{width:48px;height:48px;object-fit:contain}.back{color:#8c692e;text-decoration:none;font-size:14px}h1,h2,h3{font-family:Georgia,serif}h1{font-size:clamp(34px,6vw,52px);margin:8px 0}main{padding-top:32px;padding-bottom:65px}.eyebrow{font-size:12px;color:#957037;font-weight:700;letter-spacing:1.4px}.intro{color:#6b6052;line-height:1.6}.panel{background:#fffdf9;border:1px solid #ead8b5;border-radius:22px;padding:clamp(17px,4vw,30px);margin-top:20px;box-shadow:0 12px 36px #a9853612}.controls{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}.controls select{border:1px solid #dec797;border-radius:12px;padding:11px;background:white;max-width:100%}.muted{color:#71685d;font-size:14px}.question{font-size:clamp(23px,4vw,30px);line-height:1.35;margin:23px 0}.speakers{display:grid;grid-template-columns:1fr 1fr;gap:12px}.speaker{border-radius:16px;padding:18px;line-height:1.5}.cloe{background:#f9ece6}.marinello{background:#f6eed8}.speaker b{display:block;margin-bottom:10px;color:#805d34}.choices{display:grid;gap:9px;margin-top:17px}.choice{border:1.5px solid #e4d2b0;border-radius:12px;padding:13px 16px;text-align:left;background:#fff;cursor:pointer;color:#292118}.choice[aria-pressed=true]{border-color:#a77c32;background:#fff0cd}.choice:disabled{cursor:default}.btn{border:1px solid #ae863d;border-radius:50px;background:#b18a41;color:white;padding:13px 19px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;text-align:center}.btn.secondary{background:white;color:#80602d}.btn:disabled{opacity:.5;cursor:default}.actions{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:18px}.result{border:1px solid #dfc99e;background:#fff7e5;padding:18px;border-radius:16px;margin-top:18px;line-height:1.6}.result strong{display:block;margin-bottom:9px}.joke{font-style:italic;border-top:1px solid #e5d4b3;padding-top:12px;margin-top:14px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}.stat{background:#fff5de;border-radius:13px;padding:13px;text-align:center}.stat b{display:block;font:700 27px Georgia,serif;color:#96702e}.stat span{font-size:12px;color:#665b4b}.progress{height:9px;border-radius:12px;background:#eee3cc;overflow:hidden;margin-top:13px}.progress div{height:100%;background:#b18a41;transition:width .3s}.note{font-size:13px;color:#746a5c;line-height:1.5}@media(max-width:540px){.speakers{grid-template-columns:1fr}.actions .btn{flex:1}.stat b{font-size:23px}}</style></head><body><header class="top"><div class="wrap"><a class="brand" href="index.html"><img src="logo-ufficiale.png" alt=""><span>Bottega Appunti</span></a><a class="back" href="index.html">← Homepage</a></div></header><main class="wrap"><div class="eyebrow">BOTTEGA APPUNTI · L'ARENA</div><h1>Cloe contro Marinello ⚖</h1><p class="intro">Due opinioni. Una regola giuridica. A chi darai ragione? Attenzione: a volte sbagliano entrambi!</p><section class="panel" aria-label="Duello"><div class="controls"><label for="topic">Materia: <select id="topic"><option value="all">Tutte le materie</option></select></label><span class="muted" id="counter">Duello 1</span></div><div class="muted" id="category" style="margin-top:18px"></div><h2 class="question" id="question">Prepariamo l'arena…</h2><div class="speakers"><div class="speaker cloe"><b>✦ CLOE</b><div id="cloe"></div></div><div class="speaker marinello"><b>✦ MARINELLO</b><div id="marinello"></div></div></div><h3>Chi ha ragione?</h3><div class="choices" id="choices" role="group" aria-label="Scegli il verdetto"><button type="button" class="choice" data-pick="cloe">Cloe</button><button type="button" class="choice" data-pick="marinello">Marinello</button><button type="button" class="choice" data-pick="neither">Nessuno dei due!</button></div><div class="actions"><button type="button" class="btn" id="verify" disabled>Scopri il verdetto →</button><button type="button" class="btn secondary" id="next">Altro duello →</button></div><div class="result" id="result" role="status" hidden></div></section><section class="panel"><h2>La mia carriera nell'arena</h2><div class="stats"><div class="stat"><b id="played">0</b><span>Duelli affrontati</span></div><div class="stat"><b id="correct">0</b><span>Verdetti corretti</span></div><div class="stat"><b id="accuracy">0%</b><span>Precisione</span></div></div><p id="milestone" class="muted"></p><div class="progress"><div id="bar" style="width:0%"></div></div><p class="note">I risultati sono salvati su questo dispositivo e restano separati dai progressi delle flashcard. Puoi ripetere i duelli per esercitarti.</p></section></main><script>window.BOTTEGA_DUELLI=[
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#fffaf1"><meta name="description" content="Cloe contro Marinello: duelli di diritto per preparare i concorsi pubblici con Bottega Appunti."><title>Cloe contro Marinello | Bottega Appunti</title><style>*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 90% 10%,#fff0cb,transparent 40%),#fffaf1;color:#292118;font-family:Arial,Helvetica,sans-serif}a{color:inherit}button,select{font:inherit}.wrap{max-width:920px;margin:auto;padding:0 18px}.top{border-bottom:1px solid #dec797;background:#fffcf6}.top .wrap{display:flex;align-items:center;justify-content:space-between;min-height:72px;gap:12px}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700}.brand img{width:48px;height:48px;object-fit:contain}.back{color:#8c692e;text-decoration:none;font-size:14px}h1,h2,h3{font-family:Georgia,serif}h1{font-size:clamp(34px,6vw,52px);margin:8px 0}main{padding-top:32px;padding-bottom:65px}.eyebrow{font-size:12px;color:#957037;font-weight:700;letter-spacing:1.4px}.intro{color:#6b6052;line-height:1.6}.panel{background:#fffdf9;border:1px solid #ead8b5;border-radius:22px;padding:clamp(17px,4vw,30px);margin-top:20px;box-shadow:0 12px 36px #a9853612}.controls{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}.controls select{border:1px solid #dec797;border-radius:12px;padding:11px;background:white;max-width:100%}.muted{color:#71685d;font-size:14px}.question{font-size:clamp(23px,4vw,30px);line-height:1.35;margin:23px 0}.speakers{display:grid;grid-template-columns:1fr 1fr;gap:12px}.speaker{border-radius:16px;padding:18px;line-height:1.5}.cloe{background:#f9ece6}.marinello{background:#f6eed8}.speaker b{display:block;margin-bottom:10px;color:#805d34}.choices{display:grid;gap:9px;margin-top:17px}.choice{border:1.5px solid #e4d2b0;border-radius:12px;padding:13px 16px;text-align:left;background:#fff;cursor:pointer;color:#292118}.choice[aria-pressed=true]{border-color:#a77c32;background:#fff0cd}.choice:disabled{cursor:default}.btn{border:1px solid #ae863d;border-radius:50px;background:#b18a41;color:white;padding:13px 19px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;text-align:center}.btn.secondary{background:white;color:#80602d}.btn:disabled{opacity:.5;cursor:default}.actions{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:18px}.result{border:1px solid #dfc99e;background:#fff7e5;padding:18px;border-radius:16px;margin-top:18px;line-height:1.6}.result strong{display:block;margin-bottom:9px}.joke{border-top:1px solid #e5d4b3;padding-top:12px;margin-top:14px}.joke-line{margin:0 0 12px}.joke-speaker{font-weight:700;color:#805d34}.joke-mood{font-style:italic;color:#756858}.joke-quote{display:block;margin-top:4px;padding-left:10px;border-left:2px solid #dec797}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}.stat{background:#fff5de;border-radius:13px;padding:13px;text-align:center}.stat b{display:block;font:700 27px Georgia,serif;color:#96702e}.stat span{font-size:12px;color:#665b4b}.progress{height:9px;border-radius:12px;background:#eee3cc;overflow:hidden;margin-top:13px}.progress div{height:100%;background:#b18a41;transition:width .3s}.note{font-size:13px;color:#746a5c;line-height:1.5}@media(max-width:540px){.speakers{grid-template-columns:1fr}.actions .btn{flex:1}.stat b{font-size:23px}}</style></head><body><header class="top"><div class="wrap"><a class="brand" href="index.html"><img src="logo-ufficiale.png" alt=""><span>Bottega Appunti</span></a><a class="back" href="index.html">← Homepage</a></div></header><main class="wrap"><div class="eyebrow">BOTTEGA APPUNTI · L'ARENA</div><h1>Cloe contro Marinello ⚖</h1><p class="intro">Due opinioni. Una regola giuridica. A chi darai ragione? Attenzione: a volte sbagliano entrambi!</p><section class="panel" aria-label="Duello"><div class="controls"><label for="topic">Materia: <select id="topic"><option value="all">Tutte le materie</option></select></label><span class="muted" id="counter">Duello 1</span></div><div class="muted" id="category" style="margin-top:18px"></div><h2 class="question" id="question">Prepariamo l'arena…</h2><div class="speakers"><div class="speaker cloe"><b>✦ CLOE</b><div id="cloe"></div></div><div class="speaker marinello"><b>✦ MARINELLO</b><div id="marinello"></div></div></div><h3>Chi ha ragione?</h3><div class="choices" id="choices" role="group" aria-label="Scegli il verdetto"><button type="button" class="choice" data-pick="cloe">Cloe</button><button type="button" class="choice" data-pick="marinello">Marinello</button><button type="button" class="choice" data-pick="neither">Nessuno dei due!</button></div><div class="actions"><button type="button" class="btn" id="verify" disabled>Scopri il verdetto →</button><button type="button" class="btn secondary" id="next">Altro duello →</button></div><div class="result" id="result" role="status" hidden></div></section><section class="panel"><h2>La mia carriera nell'arena</h2><div class="stats"><div class="stat"><b id="played">0</b><span>Duelli affrontati</span></div><div class="stat"><b id="correct">0</b><span>Verdetti corretti</span></div><div class="stat"><b id="accuracy">0%</b><span>Precisione</span></div></div><p id="milestone" class="muted"></p><div class="progress"><div id="bar" style="width:0%"></div></div><p class="note">I risultati sono salvati su questo dispositivo e restano separati dai progressi delle flashcard. Puoi ripetere i duelli per esercitarti.</p></section></main><script>window.BOTTEGA_DUELLI=[
  {
   "topic": "Accesso civico",
   "question": "Per chiedere l’accesso civico generalizzato bisogna motivare la richiesta?",
@@ -6,7 +6,7 @@
   "marinello": "Sì, bisogna dimostrare un interesse diretto, concreto e attuale.",
   "right": "cloe",
   "explanation": "L’art. 5, comma 3, D.Lgs. 33/2013 stabilisce che l’istanza non richiede motivazione. L’interesse qualificato riguarda invece l’accesso documentale.",
-  "joke": "«Ho confuso gli accessi», ammette Marinello. «Li separiamo con un cartello?», propone Cloe.",
+  "joke": "Marinello, con un sorriso appena accennato: «Ho confuso gli accessi»\nCloe, trattenendo una risata: «Li separiamo con un cartello?»",
   "link": "flashcard-accesso-agli-atti.html"
  },
  {
@@ -16,7 +16,7 @@
   "marinello": "Sempre 90 giorni.",
   "right": "cloe",
   "explanation": "Art. 2, comma 2, L. 241/1990: nei procedimenti delle amministrazioni statali e degli enti pubblici nazionali il termine ordinario è 30 giorni, salvo diversa previsione.",
-  "joke": "«Trenta giorni per correggerti?» «Per oggi te ne concedo uno», risponde Cloe.",
+  "joke": "Marinello, con aria incredula: «Trenta giorni per correggerti?»\nCloe, con tono divertito: «Per oggi te ne concedo uno»",
   "link": "flashcard-procedimento-amministrativo.html"
  },
  {
@@ -26,7 +26,7 @@
   "marinello": "Sì, purché il voto sia unanime.",
   "right": "neither",
   "explanation": "No. Il Consiglio europeo non esercita funzioni legislative (art. 15 TUE). Il colegislatore è il Consiglio dell’Unione europea.",
-  "joke": "«Abbiamo sbagliato entrambi?» «Una rara convergenza istituzionale», sospira Marinello.",
+  "joke": "Cloe, sorridendo con discrezione: «Abbiamo sbagliato entrambi?»\nMarinello, con finta solennità: «Una rara convergenza istituzionale»",
   "link": "flashcard.html"
  },
  {
@@ -36,7 +36,7 @@
   "marinello": "No, riguarda esclusivamente i documenti coperti da segreto.",
   "right": "cloe",
   "explanation": "Art. 5, comma 1, D.Lgs. 33/2013: chiunque può richiedere dati, documenti o informazioni soggetti a pubblicazione obbligatoria quando la pubblicazione è stata omessa.",
-  "joke": "«Questa volta era semplice.» «Il nome dell’istituto era un indizio», replica Marinello.",
+  "joke": "Cloe, alzando un sopracciglio: «Questa volta era semplice.»\nMarinello, con un sorriso complice: «Il nome dell’istituto era un indizio»",
   "link": "flashcard-trasparenza-amministrativa.html"
  },
  {
@@ -46,7 +46,7 @@
   "marinello": "Sì, lo stabilisce l’articolo 1.",
   "right": "mar",
   "explanation": "L’art. 1 della Costituzione recita: «L’Italia è una Repubblica democratica, fondata sul lavoro».",
-  "joke": "«Hai citato il primo articolo!» «Mi piace iniziare bene», sorride Marinello.",
+  "joke": "Cloe, con aria soddisfatta: «Hai citato il primo articolo!»\nMarinello, con ironia sottile: «Mi piace iniziare bene»",
   "link": "flashcard-principi-fondamentali-costituzione.html"
  },
  {
@@ -56,7 +56,7 @@
   "marinello": "Sì, a meno che il destinatario lo autorizzi.",
   "right": "neither",
   "explanation": "No. L’art. 21-quinquies della L. 241/1990 disciplina la revoca nei presupposti previsti dalla legge; resta distinta dall’annullamento d’ufficio.",
-  "joke": "«Due certezze, due errori», osserva Cloe. «È una lezione di umiltà», conclude Marinello.",
+  "joke": "Cloe, con un sorriso malizioso: «Due certezze, due errori»\nMarinello, fingendo indifferenza: «È una lezione di umiltà»",
   "link": "flashcard-provvedimento-amministrativo.html"
  },
  {
@@ -66,7 +66,7 @@
   "marinello": "Sì, ogni ufficio può aggiungere passaggi a piacimento.",
   "right": "cloe",
   "explanation": "L’art. 1, comma 2, L. 241/1990 vieta di aggravare il procedimento se non per straordinarie e motivate esigenze imposte dallo svolgimento dell’istruttoria.",
-  "joke": "«Un passaggio in più per sicurezza?» «Solo se davvero necessario», risponde Cloe.",
+  "joke": "Marinello, con tono pacato: «Un passaggio in più per sicurezza?»\nCloe, divertita: «Solo se davvero necessario»",
   "link": "flashcard-procedimento-amministrativo.html"
  },
  {
@@ -76,7 +76,7 @@
   "marinello": "Collettivamente le due Camere.",
   "right": "mar",
   "explanation": "Art. 70 Cost.: «La funzione legislativa è esercitata collettivamente dalle due Camere».",
-  "joke": "«Le Camere lavorano in coppia.» «Una collaborazione che consiglio anche a noi», dice Marinello.",
+  "joke": "Cloe, con un sorriso rassegnato: «Le Camere lavorano in coppia.»\nMarinello, con un sorriso appena accennato: «Una collaborazione che consiglio anche a noi»",
   "link": "flashcard-principi-fondamentali-costituzione.html"
  },
  {
@@ -86,7 +86,7 @@
   "marinello": "No, chiunque può sempre accedere senza alcun interesse.",
   "right": "cloe",
   "explanation": "Art. 22, comma 1, lett. b), L. 241/1990: l’interessato deve avere un interesse diretto, concreto e attuale, corrispondente a una situazione giuridicamente tutelata e collegata al documento.",
-  "joke": "«Finalmente distinguiamo gli accessi», dice Cloe. «Finalmente», conferma Marinello.",
+  "joke": "Cloe, trattenendo una risata: «Finalmente distinguiamo gli accessi»\nMarinello, con aria incredula: «Finalmente»",
   "link": "flashcard-accesso-agli-atti.html"
  },
  {
@@ -96,7 +96,7 @@
   "marinello": "Sì, purché il dipendente sia in servizio.",
   "right": "neither",
   "explanation": "No. La responsabilità penale è accertata dall’autorità giudiziaria secondo le regole del processo penale; il procedimento disciplinare è distinto.",
-  "joke": "«Nessuno di noi due?» «Meglio sbagliare qui che in un verbale», risponde Marinello.",
+  "joke": "Cloe, con tono divertito: «Nessuno di noi due?»\nMarinello, sorridendo con discrezione: «Meglio sbagliare qui che in un verbale»",
   "link": "flashcard-responsabilita-dipendente.html"
  },
  {
@@ -106,7 +106,7 @@
   "marinello": "No, è il responsabile unico della pubblicazione.",
   "right": "cloe",
   "explanation": "Art. 15 del D.Lgs. 36/2023: le stazioni appaltanti nominano un responsabile unico del progetto (RUP) per le fasi previste dalla disposizione.",
-  "joke": "«La P sta per progetto», dice Cloe. «Un dettaglio non proprio marginale», replica Marinello.",
+  "joke": "Cloe, con finta solennità: «La P sta per progetto»\nMarinello, alzando un sopracciglio: «Un dettaglio non proprio marginale»",
   "link": "flashcard-contratti-pubblici-rup.html"
  },
  {
@@ -116,7 +116,7 @@
   "marinello": "Sì, salvo le eccezioni previste dai trattati.",
   "right": "mar",
   "explanation": "L’art. 17, comma 2, TUE prevede, in via generale, che gli atti legislativi dell’Unione siano adottati su proposta della Commissione, salvo diversa previsione dei trattati.",
-  "joke": "«Questa proposta la approvo», dice Cloe. «Annotiamolo: succede», risponde Marinello.",
+  "joke": "Cloe, con un sorriso complice: «Questa proposta la approvo»\nMarinello, con aria soddisfatta: «Annotiamolo: succede»",
   "link": "flashcard.html"
  },
  {
@@ -126,7 +126,7 @@
   "marinello": "Sì, purché il richiedente sia cittadino italiano.",
   "right": "neither",
   "explanation": "No. L’art. 5-bis del D.Lgs. 33/2013 prevede esclusioni e limiti a tutela di interessi pubblici e privati, oltre ai divieti di accesso stabiliti dalla legge.",
-  "joke": "«Libertà non significa assenza di regole», osserva Marinello. «Segniamolo entrambi», dice Cloe.",
+  "joke": "Marinello, con ironia sottile: «Libertà non significa assenza di regole»\nCloe, con un sorriso malizioso: «Segniamolo entrambi»",
   "link": "flashcard-trasparenza-amministrativa.html"
  },
  {
@@ -136,7 +136,7 @@
   "marinello": "No, appartiene al Governo in carica.",
   "right": "cloe",
   "explanation": "Art. 1, comma 2, Cost.: la sovranità appartiene al popolo, che la esercita nelle forme e nei limiti della Costituzione.",
-  "joke": "«La sovranità al popolo!» «E le battute a te, purtroppo», sospira Marinello.",
+  "joke": "Cloe, fingendo indifferenza: «La sovranità al popolo!»\nMarinello, con tono pacato: «E le battute a te, purtroppo»",
   "link": "flashcard-principi-fondamentali-costituzione.html"
  },
  {
@@ -146,8 +146,8 @@
   "marinello": "Sì, rientra tra i compiti previsti dall’articolo 6.",
   "right": "mar",
   "explanation": "L’art. 6, comma 1, lett. b), L. 241/1990 consente al responsabile di chiedere la rettifica di dichiarazioni o istanze erronee o incomplete.",
-  "joke": "«Allora posso correggere la mia risposta?» «La prossima volta, Cloe», sorride Marinello.",
+  "joke": "Cloe, divertita: «Allora posso correggere la mia risposta?»\nMarinello, con un sorriso rassegnato: «La prossima volta, Cloe»",
   "link": "flashcard-procedimento-amministrativo.html"
  }
 ];
-</script><script>(()=>{'use strict';const all=window.BOTTEGA_DUELLI||[];const $=id=>document.getElementById(id);const KEY='bottega-duelli-v1';let data={};try{data=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){}if(!data.results||typeof data.results!=='object')data.results={};let filtered=all.map((_,i)=>i),position=0,pick=null;const topics=[...new Set(all.map(x=>x.topic))].sort((a,b)=>a.localeCompare(b,'it'));for(const t of topics){const o=document.createElement('option');o.value=t;o.textContent=t;$('topic').append(o)}function current(){return all[filtered[position]]}function render(){if(!filtered.length){$('question').textContent='Nessun duello disponibile';return}const q=current(),id=filtered[position],saved=data.results[id];pick=saved?saved.pick:null;$('category').textContent=q.topic;$('counter').textContent=`Duello ${position+1} di ${filtered.length}`;$('question').textContent=q.question;$('cloe').textContent=q.cloe;$('marinello').textContent=q.marinello;document.querySelectorAll('[data-pick]').forEach(b=>{b.disabled=!!saved;b.setAttribute('aria-pressed',String(b.dataset.pick===pick))});$('verify').disabled=!!saved||!pick;$('verify').hidden=!!saved;$('result').hidden=!saved;if(saved)verdict(saved.pick);else $('result').replaceChildren();$('next').textContent=position===filtered.length-1?'Ricomincia ↻':'Altro duello →';stats()}function verdict(v){const q=current(),box=$('result');box.replaceChildren();const title=document.createElement('strong');title.textContent=v===q.right?'✓ Verdetto corretto!':'Il verdetto corretto è: '+({cloe:'Cloe',marinello:'Marinello',neither:'Nessuno dei due'}[q.right]);const why=document.createElement('p');why.textContent=q.explanation;const joke=document.createElement('div');joke.className='joke';joke.textContent=q.joke;const link=document.createElement('a');link.href=q.link;link.textContent='Allenati su questo argomento →';link.style.color='#896327';box.append(title,why,joke,document.createElement('br'),link);box.hidden=false}function stats(){const entries=Object.values(data.results).filter(x=>x&&typeof x.correct==='boolean'),count=entries.length,correct=entries.filter(x=>x.correct).length;$('played').textContent=count;$('correct').textContent=correct;$('accuracy').textContent=count?Math.round(correct/count*100)+'%':'0%';const next=[1,5,10,15].find(n=>correct<n);$('milestone').textContent=next?`Prossimo traguardo: ${next} verdett${next===1?'o':'i'} corrett${next===1?'o':'i'} (${correct}/${next})`:'Traguardo raggiunto: 15 verdetti corretti!';$('bar').style.width=(next?Math.min(100,correct/next*100):100)+'%'}document.querySelectorAll('[data-pick]').forEach(b=>b.addEventListener('click',()=>{if(data.results[filtered[position]])return;pick=b.dataset.pick;document.querySelectorAll('[data-pick]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));$('verify').disabled=false}));$('verify').addEventListener('click',()=>{if(!pick)return;const id=filtered[position];if(data.results[id])return;data.results[id]={pick,correct:pick===current().right};try{localStorage.setItem(KEY,JSON.stringify(data))}catch(e){}render()});$('next').addEventListener('click',()=>{position=(position+1)%filtered.length;render()});$('topic').addEventListener('change',()=>{filtered=all.map((q,i)=>({q,i})).filter(x=>$('topic').value==='all'||x.q.topic===$('topic').value).map(x=>x.i);position=0;render()});render()})();</script></body></html>
+</script><script>(()=>{'use strict';const all=window.BOTTEGA_DUELLI||[];const $=id=>document.getElementById(id);const KEY='bottega-duelli-v1';let data={};try{data=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){}if(!data.results||typeof data.results!=='object')data.results={};let filtered=all.map((_,i)=>i),position=0,pick=null;const topics=[...new Set(all.map(x=>x.topic))].sort((a,b)=>a.localeCompare(b,'it'));for(const t of topics){const o=document.createElement('option');o.value=t;o.textContent=t;$('topic').append(o)}function current(){return all[filtered[position]]}function render(){if(!filtered.length){$('question').textContent='Nessun duello disponibile';return}const q=current(),id=filtered[position],saved=data.results[id];pick=saved?saved.pick:null;$('category').textContent=q.topic;$('counter').textContent=`Duello ${position+1} di ${filtered.length}`;$('question').textContent=q.question;$('cloe').textContent=q.cloe;$('marinello').textContent=q.marinello;document.querySelectorAll('[data-pick]').forEach(b=>{b.disabled=!!saved;b.setAttribute('aria-pressed',String(b.dataset.pick===pick))});$('verify').disabled=!!saved||!pick;$('verify').hidden=!!saved;$('result').hidden=!saved;if(saved)verdict(saved.pick);else $('result').replaceChildren();$('next').textContent=position===filtered.length-1?'Ricomincia ↻':'Altro duello →';stats()}function verdict(v){const q=current(),box=$('result');box.replaceChildren();const title=document.createElement('strong');title.textContent=v===q.right?'✓ Verdetto corretto!':'Il verdetto corretto è: '+({cloe:'Cloe',marinello:'Marinello',neither:'Nessuno dei due'}[q.right]);const why=document.createElement('p');why.textContent=q.explanation;const joke=document.createElement('div');joke.className='joke';q.joke.split('\n').forEach(line=>{const m=line.match(/^(Cloe|Marinello), (.*?): (.*)$/);const paragraph=document.createElement('p');paragraph.className='joke-line';if(m){const who=document.createElement('span');who.className='joke-speaker';who.textContent=m[1];const mood=document.createElement('span');mood.className='joke-mood';mood.textContent=', '+m[2];const quote=document.createElement('span');quote.className='joke-quote';quote.textContent=m[3];paragraph.append(who,mood,quote)}else{paragraph.textContent=line}joke.append(paragraph)});const link=document.createElement('a');link.href=q.link;link.textContent='Allenati su questo argomento →';link.style.color='#896327';box.append(title,why,joke,document.createElement('br'),link);box.hidden=false}function stats(){const entries=Object.values(data.results).filter(x=>x&&typeof x.correct==='boolean'),count=entries.length,correct=entries.filter(x=>x.correct).length;$('played').textContent=count;$('correct').textContent=correct;$('accuracy').textContent=count?Math.round(correct/count*100)+'%':'0%';const next=[1,5,10,15].find(n=>correct<n);$('milestone').textContent=next?`Prossimo traguardo: ${next} verdett${next===1?'o':'i'} corrett${next===1?'o':'i'} (${correct}/${next})`:'Traguardo raggiunto: 15 verdetti corretti!';$('bar').style.width=(next?Math.min(100,correct/next*100):100)+'%'}document.querySelectorAll('[data-pick]').forEach(b=>b.addEventListener('click',()=>{if(data.results[filtered[position]])return;pick=b.dataset.pick;document.querySelectorAll('[data-pick]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));$('verify').disabled=false}));$('verify').addEventListener('click',()=>{if(!pick)return;const id=filtered[position];if(data.results[id])return;data.results[id]={pick,correct:pick===current().right};try{localStorage.setItem(KEY,JSON.stringify(data))}catch(e){}render()});$('next').addEventListener('click',()=>{position=(position+1)%filtered.length;render()});$('topic').addEventListener('change',()=>{filtered=all.map((q,i)=>({q,i})).filter(x=>$('topic').value==='all'||x.q.topic===$('topic').value).map(x=>x.i);position=0;render()});render()})();</script></body></html>
