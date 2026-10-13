@@ -37,4 +37,21 @@ el('review').addEventListener('click',()=>save('no'));el('know').addEventListene
 document.querySelectorAll('[data-level]').forEach(b=>b.addEventListener('click',()=>{if(reviewMode)return;level=Number(b.dataset.level);pos=0;draw()}));
 el('reviewMode').addEventListener('click',()=>{reviewMode=!reviewMode;reviewIndex=0;draw()});
 const params=new URLSearchParams(location.search);if(params.get('ripasso')==='1'){reviewMode=true;reviewIndex=0}draw();
+</script><script>
+/* Bottega Appunti: registro locale delle attività, senza account. */
+(function(){
+const original=Storage.prototype.setItem;
+const deckKeys=["bottega-memory-procedimento-v1", "bottega-memory-provvedimento-v1", "bottega-memory-accesso-atti-v1", "bottega-memory-trasparenza-v1", "bottega-memory-contratti-rup-v1", "bottega-memory-responsabilita-v1", "bottega-memory-costituzione-principi-v1"];
+function stats(){let known=0,review=0;for(const key of deckKeys){let marks={};try{marks=JSON.parse(localStorage.getItem(key)||'{}')||{}}catch(e){}for(let i=0;i<30;i++){if(marks[i]==='yes')known++;else if(marks[i]==='no')review++;}}return {known,review};}
+Storage.prototype.setItem=function(k,v){
+ let track=this===localStorage&&deckKeys.includes(String(k))&&this.getItem(k)!==String(v);
+ let result=original.call(this,k,v);
+ if(track){try{let h=JSON.parse(localStorage.getItem('bottega-attivita-v1')||'[]');if(!Array.isArray(h))h=[];
+ const d=new Date(),day=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+ const s=stats();h.push({day,known:s.known,review:s.review});
+ original.call(localStorage,'bottega-attivita-v1',JSON.stringify(h.slice(-1500)));
+ }catch(e){}}
+ return result;
+};
+})();
 </script></body></html>
