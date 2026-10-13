@@ -19,20 +19,17 @@
 @media(max-width:365px){.head-actions .login{font-size:12px}.hero h1{font-size:40px}.tile h2{font-size:20px}.benefit{font-size:10px}}
 [hidden]{display:none!important}
 
-/* Anteprima del percorso personale: dati reali salvati dalle flashcard */
-.journey-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.journey-item{display:block;border:1px solid var(--line);background:#fffdf9;border-radius:18px;padding:19px 20px;transition:box-shadow .2s,transform .2s}
-.journey-item:hover{box-shadow:0 8px 22px #aa7e3020;transform:translateY(-2px)}
-.journey-item-head{display:flex;justify-content:space-between;align-items:start;gap:14px;font-size:17px}
-.journey-item-head strong{font-family:Georgia,serif;font-size:21px}
-.journey-item-head span{color:#8e692c;font-weight:750;white-space:nowrap}
-.journey-status{font-size:13px;color:var(--muted);margin:8px 0 13px}
-.journey-track{height:11px;background:#f0e5d2;border-radius:99px;overflow:hidden}
-.journey-fill{height:100%;background:#b79550;border-radius:99px;transition:width .3s}
-.journey-fill.done{background:#39866b}
-.journey-empty{padding:14px 0 18px}.journey-empty p{color:var(--muted);line-height:1.6}
-.journey-foot{margin-top:17px;text-align:right}.journey-foot a{color:#8a642c;text-decoration:underline;text-underline-offset:4px;font-weight:700}
-@media(max-width:650px){.journey .subject-head{align-items:start}.journey .subject-head h2{font-size:31px}.journey .subject-head .btn{max-width:120px;line-height:1.2}.journey-list{grid-template-columns:1fr}.journey-item{padding:15px}.journey-item-head strong{font-size:19px}}
+/* Sfida quotidiana: stile coordinato con il sito */
+.daily .subject-head{align-items:flex-start}.daily-date{font-weight:700;color:#906b2e;white-space:nowrap;padding-top:9px}
+.daily-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#906b2e;font-size:13px;font-weight:700;margin:15px 0}
+.daily-question{font:700 clamp(21px,3vw,29px)/1.35 Georgia,serif;margin:16px 0 20px;max-width:850px}
+.daily-options{display:grid;gap:10px}.daily-option{display:flex;align-items:center;gap:13px;width:100%;text-align:left;background:#fffdf9;border:1.5px solid var(--line);border-radius:16px;padding:16px 18px;color:var(--ink);font-size:16px;line-height:1.45;cursor:pointer}
+.daily-option .letter{display:grid;place-items:center;width:33px;height:33px;flex:none;border-radius:50%;background:#fff0cb;color:#916928;font-weight:700}
+.daily-option.selected{border-color:#b28739;background:#fff3d8}.daily-option.correct{border-color:#39866b;background:#eff8f1}.daily-option.incorrect{border-color:#b15e47;background:#fff0e9}.daily-option:disabled{cursor:default;opacity:1}
+.daily-result{padding:16px 18px;border:1px solid var(--line);border-radius:16px;background:#fff7e6;margin-top:15px;line-height:1.55}.daily-result strong{display:block;margin-bottom:6px}
+.daily-actions{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;margin-top:18px}.daily-actions .btn:disabled{opacity:.55;cursor:default}.daily-more{font-weight:700;color:#896327;text-decoration:underline;text-underline-offset:4px}
+.daily-bottom{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:20px;padding-top:16px;color:var(--muted);font-size:13px}
+@media(max-width:650px){.daily .subject-head h2{font-size:32px}.daily .subject-head{display:block}.daily-date{display:block;padding-top:8px}.daily-option{font-size:15px;padding:13px 12px}.daily-actions .btn{width:100%}.daily-more{padding:8px 0}}
 </style>
 </head>
 <body>
@@ -46,33 +43,44 @@
 <a class="tile" href="materie.html"><span class="bubble"><svg viewBox="0 0 40 40"><path d="M3 15 20 6l17 9-17 9zM10 20v9c7 6 14 6 21 0v-9M36 16v12"/></svg></span><h2>Le mie materie</h2><p>Organizza il tuo percorso e segui lo studio.</p><span class="arrow" aria-hidden="true">→</span></a>
 <a class="tile" href="progressi.html"><span class="bubble"><svg viewBox="0 0 40 40"><rect x="5" y="25" width="7" height="11"/><rect x="17" y="16" width="7" height="20"/><rect x="29" y="6" width="7" height="30"/></svg></span><h2>I miei progressi</h2><p>Monitora i tuoi risultati e ripassa le domande da rivedere.</p><span class="arrow" aria-hidden="true">→</span></a>
 </section>
-<section class="subjects journey" id="percorso" aria-labelledby="journeyTitle">
- <div class="subject-head"><div><h2 id="journeyTitle">Il mio percorso</h2><p id="journeyIntro">Riprendi da dove eri rimasto.</p></div><a class="btn primary" href="materie.html">Le mie materie →</a></div>
- <div id="journeyList" class="journey-list" aria-live="polite"></div>
- <div id="journeyEmpty" class="journey-empty" hidden><p>Il mio percorso comincia da una scelta: aggiungi la prima materia e tieni d’occhio i tuoi miglioramenti.</p><a class="btn primary" href="materie.html">Scegli le tue materie →</a></div>
- <div class="journey-foot"><a href="progressi.html">Scopri tutti i tuoi progressi e i traguardi →</a></div>
-</section><div class="bottom" aria-hidden="true"></div></main>
+<section class="subjects daily" id="sfida" aria-labelledby="dailyTitle">
+ <div class="subject-head"><div><h2 id="dailyTitle">La sfida del giorno ✦</h2><p>Una domanda nuova ogni giorno. Mettiti alla prova!</p></div><span class="daily-date" id="dailyDate"></span></div>
+ <div class="daily-meta"><span id="dailyTopic">La domanda di oggi</span><span id="dailySeries">✦ Prima sfida</span></div>
+ <div class="daily-question" id="dailyQuestion">Caricamento della sfida…</div>
+ <div class="daily-options" id="dailyOptions" role="group" aria-label="Scegli una risposta"></div>
+ <div id="dailyResult" class="daily-result" role="status" hidden></div>
+ <div class="daily-actions"><button class="btn primary" type="button" id="dailyCheck" disabled>Verifica la risposta →</button><a class="daily-more" id="dailyMore" href="flashcard.html">Allenati su questo argomento →</a></div>
+ <div class="daily-bottom"><span id="dailyCount">Le tue sfide completate: 0</span><span id="dailyNext">Torna domani per una nuova domanda!</span></div>
+ </section><div class="bottom" aria-hidden="true"></div></main>
 <div class="notice" id="notice" role="status"></div>
 <script>
 const notice=document.getElementById('notice');let noticeTimer;function toast(message){notice.textContent=message;notice.classList.add('show');clearTimeout(noticeTimer);noticeTimer=setTimeout(()=>notice.classList.remove('show'),4000)}
 document.querySelectorAll('[data-soon]').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();toast('La sezione «'+el.dataset.soon+'» sarà attivata nelle prossime fasi. Questa è un’anteprima del sito.')}));
 const menu=document.getElementById('menuBtn'),nav=document.getElementById('nav');menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open))});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}));
-const SUBJECTS=[
- ['amministrativo','Diritto amministrativo'],['costituzionale','Diritto costituzionale'],['contratti','Contratti pubblici'],['impiego','Pubblico impiego'],['ue','Diritto dell’Unione europea'],['lavoro','Diritto del lavoro'],['penale','Diritto penale'],['contabilita','Contabilità pubblica']
-];
-const DECKS={
- amministrativo:['bottega-memory-procedimento-v1','bottega-memory-provvedimento-v1','bottega-memory-accesso-atti-v1','bottega-memory-trasparenza-v1'],
- costituzionale:['bottega-memory-costituzione-principi-v1'],
- contratti:['bottega-memory-contratti-rup-v1'],
- impiego:['bottega-memory-responsabilita-v1']
-};
-function getSaved(key){try{return JSON.parse(localStorage.getItem(key)||'{}')||{}}catch(e){return {}}}
-function progressFor(id){const decks=DECKS[id]||[];let yes=0,no=0;for(const key of decks){const marks=getSaved(key);for(let i=0;i<30;i++){if(marks[i]==='yes')yes++;else if(marks[i]==='no')no++}}const total=decks.length*30;return {total,yes,no,percent:total?Math.round(yes/total*100):0}}
-function journeyStatus(p){if(!p.total)return 'Valutazione non disponibile';if(!p.yes&&!p.no)return 'Da iniziare';if(p.percent>=90)return 'Completata';if(p.percent>=50)return 'Da ripassare';return 'In corso'}
-function renderJourney(){const selected=getSaved('bottega-materie-v1');const list=document.getElementById('journeyList');list.replaceChildren();const chosen=SUBJECTS.filter(([id])=>Object.prototype.hasOwnProperty.call(selected,id));document.getElementById('journeyEmpty').hidden=chosen.length!==0;document.getElementById('journeyIntro').textContent=chosen.length?'Le tue materie, a colpo d’occhio.':'Riprendi da dove eri rimasto.';
-for(const [id,name] of chosen){const p=progressFor(id);const card=document.createElement('a');card.className='journey-item';card.href='materie.html';const heading=document.createElement('div');heading.className='journey-item-head';const title=document.createElement('strong');title.textContent=name;const percentage=document.createElement('span');percentage.textContent=p.total?p.percent+'%':'—';heading.append(title,percentage);const status=document.createElement('p');status.className='journey-status';status.textContent=journeyStatus(p);card.append(heading,status);if(p.total){const track=document.createElement('div');track.className='journey-track';track.setAttribute('role','progressbar');track.setAttribute('aria-label','Preparazione: '+name);track.setAttribute('aria-valuemin','0');track.setAttribute('aria-valuemax','100');track.setAttribute('aria-valuenow',String(p.percent));const fill=document.createElement('div');fill.className='journey-fill';fill.style.width=p.percent+'%';if(p.percent>=90)fill.classList.add('done');track.append(fill);card.append(track)}list.append(card)}
+const DAILY_QUESTIONS=[["Procedimento amministrativo","Quale legge disciplina in generale il procedimento amministrativo?",["La Legge 241/1990","Il D.Lgs. 36/2023","La Legge 689/1981"],0,"La disciplina generale è contenuta nella Legge 7 agosto 1990, n. 241.","flashcard-procedimento-amministrativo.html"],["Procedimento amministrativo","Qual è il termine ordinario di conclusione del procedimento, quando non è previsto un termine diverso?",["60 giorni","30 giorni","90 giorni"],1,"In via generale il termine è di 30 giorni, salvo termini diversi previsti secondo la legge (art. 2, L. 241/1990).","flashcard-procedimento-amministrativo.html"],["Procedimento amministrativo","Chi assegna la responsabilità del singolo procedimento?",["Il dirigente dell’unità organizzativa competente","Il Presidente della Repubblica","Il cittadino richiedente"],0,"La responsabilità è assegnata dal dirigente dell’unità organizzativa competente (art. 5, L. 241/1990).","flashcard-procedimento-amministrativo.html"],["Procedimento amministrativo","La pubblica amministrazione può aggravare il procedimento senza motivo?",["Sì, sempre","Solo se lo richiede il privato","No, salvo straordinarie e motivate esigenze istruttorie"],2,"L’art. 1, comma 2, L. 241/1990 vieta l’aggravamento ingiustificato.","flashcard-procedimento-amministrativo.html"],["Procedimento amministrativo","Il responsabile del procedimento può richiedere integrazioni documentali?",["No, mai","Sì, nei limiti dei suoi compiti istruttori","Solo dopo la decisione finale"],1,"L’art. 6 della Legge 241/1990 disciplina i compiti istruttori del responsabile.","flashcard-procedimento-amministrativo.html"],["Procedimento amministrativo","Quale tra questi è un criterio generale dell’attività amministrativa?",["Imparzialità","Segretezza assoluta","Discrezionalità senza limiti"],0,"L’art. 1 della Legge 241/1990 richiama economicità, efficacia, imparzialità, pubblicità e trasparenza.","flashcard-procedimento-amministrativo.html"],["Procedimento amministrativo","Chi è responsabile del procedimento prima dell’assegnazione formale?",["Il richiedente","Il funzionario preposto all’unità organizzativa competente","Il giudice amministrativo"],1,"L’art. 5 della Legge 241/1990 attribuisce temporaneamente tale responsabilità al funzionario preposto.","flashcard-procedimento-amministrativo.html"],["Procedimento amministrativo","La PA ha il dovere di concludere il procedimento con un provvedimento espresso nei casi previsti dalla legge?",["Sì","No, mai","Solo su richiesta del TAR"],0,"L’obbligo di provvedere è disciplinato dall’art. 2 della Legge 241/1990.","flashcard-procedimento-amministrativo.html"],["Procedimento amministrativo","A chi va normalmente comunicato l’avvio del procedimento?",["Solo al sindaco","Ai destinatari diretti e agli altri soggetti individuati dalla legge","A tutti i residenti della regione"],1,"L’art. 7 della Legge 241/1990 individua i soggetti destinatari della comunicazione.","flashcard-procedimento-amministrativo.html"],["Procedimento amministrativo","Quale articolo disciplina i compiti del responsabile del procedimento?",["Art. 6 della Legge 241/1990","Art. 97 della Costituzione","Art. 20 del D.Lgs. 33/2013"],0,"L’art. 6 della Legge 241/1990 elenca i compiti del responsabile.","flashcard-procedimento-amministrativo.html"]];
+const DAILY_KEY='bottega-sfida-giorno-v1';
+function dayLocal(){return new Intl.DateTimeFormat('sv-SE',{timeZone:'Europe/Rome',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date())}
+function readDaily(){try{const d=JSON.parse(localStorage.getItem(DAILY_KEY)||'{}');return d&&typeof d==='object'?d:{}}catch(e){return {}}}
+function saveDaily(d){try{localStorage.setItem(DAILY_KEY,JSON.stringify(d))}catch(e){}}
+const day=dayLocal(),dateParts=day.split('-').map(Number),dateNumber=Math.floor(Date.UTC(dateParts[0],dateParts[1]-1,dateParts[2])/86400000);
+const challenge=DAILY_QUESTIONS[((dateNumber%DAILY_QUESTIONS.length)+DAILY_QUESTIONS.length)%DAILY_QUESTIONS.length];
+const [topic,question,options,right,explanation,deckUrl]=challenge;
+const dailyData=readDaily();if(!dailyData.days||typeof dailyData.days!=='object')dailyData.days={};
+const saved=dailyData.days[day];let selected=saved&&Number.isInteger(saved.answer)?saved.answer:null;let verified=!!(saved&&saved.done);
+document.getElementById('dailyDate').textContent=new Intl.DateTimeFormat('it-IT',{day:'numeric',month:'long',timeZone:'Europe/Rome'}).format(new Date());
+document.getElementById('dailyTopic').textContent=topic;
+document.getElementById('dailyQuestion').textContent=question;
+document.getElementById('dailyMore').href=deckUrl;
+const optionsRoot=document.getElementById('dailyOptions'),check=document.getElementById('dailyCheck'),result=document.getElementById('dailyResult');
+function updateDaily(){optionsRoot.replaceChildren();options.forEach((opt,i)=>{const btn=document.createElement('button');btn.type='button';btn.className='daily-option'+(selected===i?' selected':'')+(verified&&i===right?' correct':'')+(verified&&selected===i&&i!==right?' incorrect':'');btn.disabled=verified;btn.setAttribute('aria-pressed',String(selected===i));const letter=document.createElement('span');letter.className='letter';letter.textContent='ABC'[i];const text=document.createElement('span');text.textContent=opt;btn.append(letter,text);btn.addEventListener('click',()=>{selected=i;updateDaily()});optionsRoot.append(btn)}));check.disabled=verified||selected===null;check.hidden=verified;result.hidden=!verified;if(verified){result.replaceChildren();const strong=document.createElement('strong');strong.textContent=selected===right?'✓ Risposta corretta!':'La risposta corretta è: '+options[right];const para=document.createElement('span');para.textContent=explanation;result.append(strong,para)}
+const days=Object.keys(dailyData.days).filter(d=>dailyData.days[d]&&dailyData.days[d].done).sort();document.getElementById('dailyCount').textContent='Sfide completate: '+days.length;
+let streak=0;let cursor=dateNumber;while(dailyData.days[new Date(cursor*86400000).toISOString().slice(0,10)]?.done){streak++;cursor--}
+if(!streak){cursor=dateNumber-1;while(dailyData.days[new Date(cursor*86400000).toISOString().slice(0,10)]?.done){streak++;cursor--}}
+document.getElementById('dailySeries').textContent=streak?'✦ '+streak+(streak===1?' giorno consecutivo':' giorni consecutivi'):'✦ Inizia la tua serie';
+document.getElementById('dailyNext').textContent=verified?'Ottimo! Una nuova sfida ti aspetta domani.':'Una risposta al giorno, un passo avanti.';
 }
-window.addEventListener('pageshow',renderJourney);window.addEventListener('focus',renderJourney);window.addEventListener('storage',renderJourney);renderJourney();
-const searchInput=document.getElementById('searchInput');document.getElementById('searchForm').addEventListener('submit',e=>{e.preventDefault();const q=searchInput.value.trim();window.location.href='materie.html'+(q?'?cerca='+encodeURIComponent(q):'')});
+check.addEventListener('click',()=>{if(verified||selected===null)return;verified=true;dailyData.days[day]={answer:selected,done:true,correct:selected===right};saveDaily(dailyData);updateDaily()});
+updateDaily();
+const searchInput=document.getElementById('searchInput');document.getElementById('searchForm').addEventListener('submit',e=>{e.preventDefault();const q=searchInput.value.trim();window.location.href='flashcard.html'+(q?'?cerca='+encodeURIComponent(q):'')});
 </script>
 </body></html>
